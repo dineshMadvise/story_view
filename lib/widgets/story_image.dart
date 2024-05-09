@@ -138,8 +138,11 @@ class StoryImageState extends State<StoryImage> {
     widget.imageLoader.loadImage(() async {
       if (mounted) {
         if (widget.imageLoader.state == LoadState.success) {
-          widget.controller?.play();
-          forward();
+          Future.delayed(Duration(seconds: 2),(){
+            widget.controller?.play();
+            forward();
+          });
+
         } else {
           // refresh to show error
           setState(() {});
